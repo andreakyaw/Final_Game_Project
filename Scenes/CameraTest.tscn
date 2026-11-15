@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://hnxs4x2bl4sp"]
+
+[ext_resource type="PackedScene" uid="uid://63cr5ex48yt" path="res://Scenes/Gaby.tscn" id="1_g6kna"]
+[ext_resource type="Script" uid="uid://du7t6corf4osw" path="res://Scripts/gameCam.gd" id="2_xbxit"]
+[ext_resource type="Texture2D" uid="uid://cd7037bggqrcr" path="res://Assets/camerafocus.png" id="3_tq2o1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ostoq"]
+size = Vector2(2826, 189)
+
+[node name="Campus" type="Node2D" unique_id=1542255716]
+
+[node name="Gaby" parent="." unique_id=1464351694 instance=ExtResource("1_g6kna")]
+position = Vector2(232, 511)
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=1704023635]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=898136016]
+position = Vector2(1411, 663)
+shape = SubResource("RectangleShape2D_ostoq")
+debug_color = Color(0.12924469, 0.5960877, 0.69408184, 0.41960785)
+
+[node name="Polygon2D" type="Polygon2D" parent="Floor" unique_id=1712303587]
+color = Color(0.3435969, 0.23399383, 0.07795549, 1)
+
+[node name="Control" type="Control" parent="." unique_id=1641263717]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Focus" type="TextureRect" parent="Control" unique_id=1608459680]
+layout_mode = 0
+offset_left = 712.445
+offset_top = 499.0
+offset_right = 912.445
+offset_bottom = 699.0
+texture = ExtResource("3_tq2o1")
+
+[node name="Photo" type="TextureRect" parent="Control/Focus" unique_id=1895338892]
+layout_mode = 0
+offset_left = 9.554993
+offset_top = 10.0
+offset_right = 192.555
+offset_bottom = 193.0
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=593143028]
+position = Vector2(577, 141)
+script = ExtResource("2_xbxit")

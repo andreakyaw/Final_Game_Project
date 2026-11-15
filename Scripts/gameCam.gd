@@ -9,9 +9,13 @@ var ssCount = 1;
 
 
 var size
-var crop_zone:Rect2i
+var cropZone:Rect2i
+var cameraMode:bool
+
 
 func _ready():
+	focus.visible = false
+	cameraMode = false
 	var dir = DirAccess.open("user://")
 	dir.make_dir("screenshots")
 	
@@ -20,7 +24,7 @@ func _ready():
 		ssCount +=1
 	
 
-	crop_zone= Rect2i(focus.position, focus.size)
+	cropZone= Rect2i(focus.position, focus.size)
 
 
 
@@ -31,24 +35,27 @@ func screenshot():
 	var img = viewport.get_texture().get_image()
 	
 	#bruh
-	var global_pos = photo.get_global_transform_with_canvas().origin
+	var globalPos = photo.get_global_transform_with_canvas().origin
 	
 	
 	#based on global position...
-	var focus_rect = Rect2i(Vector2i(global_pos),Vector2i(photo.size))
+	var focusRect = Rect2i(Vector2i(globalPos),Vector2i(photo.size))
 
-	var viewport_rect = Rect2i(Vector2i.ZERO, img.get_size())
-	var crop_rect = viewport_rect.intersection(focus_rect)
+	var viewportRect = Rect2i(Vector2i.ZERO, img.get_size())
+	var cropRect = viewportRect.intersection(focusRect)
 
-	var cropped_img = img.get_region(crop_rect)
+	var croppedImg = img.get_region(cropRect)
 
 	
-	cropped_img.save_png("user://screenshots/ss"+str(ssCount)+".png")
+	croppedImg.save_png("user://screenshots/ss"+str(ssCount)+".png")
 	ssCount +=1
 	
 
 	
 func _input(event):
+	#if press c, activate picture mode
+	if event.is_action_pressed("Camera"):
+		cameraModeToggle()
 	if event is InputEventMouseMotion:
 		# Update our TextureRect's position to the event position.
 		
@@ -56,15 +63,25 @@ func _input(event):
 		#basically we need to turn our local coordinates to global ones
 		#if you don't, the box will NOT be near cursor
 		#https://docs.godotengine.org/en/stable/tutorials/2d/2d_transforms.html headache
-		var whereisthemouse = focus.get_parent().get_global_transform_with_canvas().affine_inverse() * event.position
+		var cursorPosition = event.position
+		var whereisthemouse = focus.get_parent().get_global_transform_with_canvas().affine_inverse() * cursorPosition
 
 		focus.set_position(whereisthemouse - (focus.size / 2.0))
 	#so if you are handling mouse inputs... if you only include InputEventMouseButton.... it will count press and release
 	#fun fact
-	if event is InputEventMouseButton and event.pressed:
+	if event is InputEventMouseButton and event.pressed and cameraMode:
 		screenshot()
 		
-		
+			
+#if pressing c, toggle camera on and off basically
+func cameraModeToggle():
+	#await get_tree().create_timer(time_in_seconds).timeout <- cool command for delays. thanks reddit
+	if(cameraMode):
+		focus.visible = false
+		cameraMode = false
+	else:
+		focus.visible = true
+		cameraMode = true
 
 
 	

@@ -10,6 +10,10 @@ size = Vector2(2826, 189)
 [node name="Gaby" parent="." unique_id=1464351694 instance=ExtResource("1_xxwoi")]
 position = Vector2(232, 511)
 
+[node name="Camera2D" type="Camera2D" parent="Gaby" unique_id=1380579805]
+position = Vector2(315, -271)
+scale = Vector2(4, 4)
+
 [node name="Floor" type="StaticBody2D" parent="." unique_id=1704023635]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=898136016]

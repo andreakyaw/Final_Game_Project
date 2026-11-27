@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://63cr5ex48yt" path="res://Scenes/Gaby.tscn" id="1_g6kna"]
 [ext_resource type="Script" uid="uid://du7t6corf4osw" path="res://Scripts/gameCam.gd" id="2_xbxit"]
 [ext_resource type="Texture2D" uid="uid://cd7037bggqrcr" path="res://Assets/camerafocus.png" id="3_tq2o1"]
+[ext_resource type="PackedScene" uid="uid://blm011smjh8l2" path="res://Scenes/album.tscn" id="4_xbxit"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ostoq"]
 size = Vector2(2826, 189)
@@ -46,3 +47,10 @@ offset_bottom = 193.0
 [node name="Camera2D" type="Camera2D" parent="." unique_id=593143028]
 position = Vector2(577, 141)
 script = ExtResource("2_xbxit")
+
+[node name="PhotoAlbum" parent="." unique_id=982612607 instance=ExtResource("4_xbxit")]
+visible = false
+offset_left = 14.0
+offset_top = -147.0
+offset_right = 1159.0
+offset_bottom = 589.0

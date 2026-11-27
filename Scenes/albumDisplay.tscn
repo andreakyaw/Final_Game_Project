@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://cgsf3g4imdax1"]
+
+[ext_resource type="PackedScene" uid="uid://d0yxloviia8xl" path="res://Scenes/albumSlot.tscn" id="1_i6iek"]
+
+[node name="GridContainer" type="GridContainer" unique_id=1276441168]
+offset_right = 1148.0
+offset_bottom = 647.0
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 3
+
+[node name="albumSlot" parent="." unique_id=659732922 instance=ExtResource("1_i6iek")]
+layout_mode = 2
+
+[node name="albumSlot2" parent="." unique_id=1207948284 instance=ExtResource("1_i6iek")]
+layout_mode = 2
+
+[node name="albumSlot3" parent="." unique_id=1095384151 instance=ExtResource("1_i6iek")]
+layout_mode = 2
+
+[node name="albumSlot4" parent="." unique_id=1111411710 instance=ExtResource("1_i6iek")]
+layout_mode = 2
+
+[node name="albumSlot5" parent="." unique_id=1400040028 instance=ExtResource("1_i6iek")]
+layout_mode = 2
+
+[node name="albumSlot6" parent="." unique_id=909284108 instance=ExtResource("1_i6iek")]
+layout_mode = 2
+
+[node name="albumSlot7" parent="." unique_id=63457918 instance=ExtResource("1_i6iek")]
+layout_mode = 2
+
+[node name="albumSlot8" parent="." unique_id=744296486 instance=ExtResource("1_i6iek")]
+layout_mode = 2
+
+[node name="albumSlot9" parent="." unique_id=1093308574 instance=ExtResource("1_i6iek")]
+layout_mode = 2

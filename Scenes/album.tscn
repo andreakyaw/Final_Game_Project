@@ -1,13 +1,35 @@
 [gd_scene format=3 uid="uid://blm011smjh8l2"]
 
-[ext_resource type="Texture2D" uid="uid://dovlqr0qnjtjt" path="res://Assets/book.png" id="1_dorxg"]
+[ext_resource type="PackedScene" uid="uid://cgsf3g4imdax1" path="res://Scenes/albumDisplay.tscn" id="1_dorxg"]
+[ext_resource type="Script" uid="uid://ccn70g7f0o61f" path="res://Scripts/PhotoDisplay.gd" id="1_furlf"]
+[ext_resource type="Texture2D" uid="uid://dovlqr0qnjtjt" path="res://Assets/book.png" id="2_wt2or"]
+[ext_resource type="Texture2D" uid="uid://cqioxqo8ud7qs" path="res://Assets/arrow.png" id="3_2aajg"]
 
-[node name="Album" type="Node2D" unique_id=759318401]
+[node name="PhotoAlbum" type="ColorRect" unique_id=982612607]
+offset_right = 1149.0
+offset_bottom = 643.0
+script = ExtResource("1_furlf")
 
-[node name="photo_album" type="GridContainer" parent="." unique_id=1835915541]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1264149262]
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 643.0
 
-[node name="Photo" type="TextureRect" parent="photo_album" unique_id=990020420]
+[node name="Book" type="Sprite2D" parent="CenterContainer" unique_id=1023518407]
+position = Vector2(571, 352)
+scale = Vector2(1.8144531, 1.9600002)
+texture = ExtResource("2_wt2or")
+
+[node name="AlbumDisplay" parent="CenterContainer" unique_id=172415959 instance=ExtResource("1_dorxg")]
 layout_mode = 2
-texture = ExtResource("1_dorxg")
+
+[node name="rightArrow" type="Sprite2D" parent="CenterContainer" unique_id=519296541]
+position = Vector2(724, 599)
+scale = Vector2(0.37500003, 0.54450023)
+texture = ExtResource("3_2aajg")
+
+[node name="leftArrow" type="Sprite2D" parent="CenterContainer" unique_id=371288054]
+position = Vector2(424, 602.00006)
+rotation = 3.1415927
+scale = Vector2(0.3269338, 0.54356873)
+texture = ExtResource("3_2aajg")

@@ -13,6 +13,7 @@ var cropZone:Rect2i
 var cameraMode:bool
 
 
+
 func _ready():
 	focus.visible = false
 	cameraMode = false
@@ -45,6 +46,8 @@ func screenshot():
 	var cropRect = viewportRect.intersection(focusRect)
 
 	var croppedImg = img.get_region(cropRect)
+	PhotoAlbum.photos.append(croppedImg)
+	print(PhotoAlbum.photos.size())
 
 	
 	croppedImg.save_png("user://screenshots/ss"+str(ssCount)+".png")

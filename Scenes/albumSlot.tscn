@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://d0yxloviia8xl"]
+
+[ext_resource type="Script" uid="uid://dt2wvyrb42f6r" path="res://Scripts/photoFrame.gd" id="1_2bd8y"]
+[ext_resource type="Texture2D" uid="uid://cd7037bggqrcr" path="res://Assets/camerafocus.png" id="1_7njmf"]
+
+[node name="albumSlot" type="CenterContainer" unique_id=659732922]
+offset_right = 1152.0
+offset_bottom = 648.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_2bd8y")
+
+[node name="Photo" type="TextureRect" parent="." unique_id=288569170]
+layout_mode = 2
+texture = ExtResource("1_7njmf")
